@@ -2,12 +2,17 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
+
+
+  <!--the The effect of this line (render) is to look for a file called app/views/layouts/_shim.html.erb, evaluate its contents, and insert the results into the view.  -->
